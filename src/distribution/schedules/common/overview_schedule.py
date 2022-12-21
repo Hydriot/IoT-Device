@@ -13,7 +13,7 @@ class OverviewSchedule(SchedulingBase):
         SchedulingBase.__init__(self, type(self).__name__)
 
     def exec(self):
-        os.system("cls")
+        os.system("clear")
         print()
         print("=====================================================")
         print("===============  Running Schedules ==================")

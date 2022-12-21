@@ -43,7 +43,7 @@ class ConfigManager:
     def global_config_path(self) -> Path:
         config_filename = self.__class__._global_configuration_filename
         root_dir = self.runtime_details.get_root_directory()
-        file_path = f"{root_dir}\\{config_filename}"
+        file_path = f"{root_dir}/{config_filename}"
 
         return file_path
 

@@ -1,18 +1,25 @@
 from typing import Optional
 from pydantic import BaseModel
 
-class DatabaseDetails(BaseModel):
-    serverName: Optional[str]
-    databaseName: Optional[str]
-    databaseUser: Optional[str]
-    databaseUserPassword: Optional[str]
+class Sensor(BaseModel):
+    decimal_places: Optional[int]
+    frequency_in_seconds: Optional[int]
 
-class Databases(BaseModel):
-    main: DatabaseDetails = DatabaseDetails()
+class Sensors(BaseModel):
+    water_level_sensor: Optional[Sensor]
+    tds_sensor: Optional[Sensor]
+    ph_sensor: Optional[Sensor]
+
+class Integration(BaseModel):
+    endpoint: Optional[str]
+    api_key: Optional[str]
 
 # The ROOT Configuration class
 class Schema(BaseModel):
-    databases: Databases
+    simulator_enabled: bool
+    sensors: Sensors
+    integration: Integration
+
 
 
 

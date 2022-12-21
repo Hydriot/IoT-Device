@@ -1,0 +1,22 @@
+{
+    "simulator_enabled": true,
+    "sensors": {
+        "water_level_sensor": {
+            "decimal_places": 2,
+            "frequency_in_seconds": 5
+        },
+        "tds_sensor": {
+            "decimal_places": 2,
+            "frequency_in_seconds": 5
+        },
+        "ph_sensor": {
+            "decimal_places": 2,
+            "frequency_in_seconds": 5
+        }
+    },
+    "integration": {
+        "endpoint": "http://api.website.com/resource/action",
+        "api_key": "xxxxxxxxxxxxxxxxxx"
+    }
+}
+  
