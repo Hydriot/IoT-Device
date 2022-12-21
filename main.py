@@ -1,18 +1,25 @@
-from datetime import datetime
-from doctest import master
+##from doctest import master
 
-from src.data_access.database.common.database import get_db_Session, engine
 from src.data_access.database.models import database_models
+from src.infrastructure.thread_manager import ThreadManager, ThreadType
+from src.distribution.schedules.scheduler import Scheduler
+from src.data_access.database.common.sqllite_database import SQLLiteDatabase
+from threading import Thread
 from src.infrastructure.logger import LogManager
 
 logger = LogManager().logger
+database = SQLLiteDatabase()
 
 def main():
-    database_models.Base.metadata.create_all(engine) # Create/Sync database
 
-    logger.info("Hydriot IoT Device Starting...")
+    database_models.Base.metadata.create_all(database.engine) # Create/Sync database   
 
-    ##TODO: Register Scedules
-    ##TODO: Register Website
+    thread_manager = ThreadManager()
+    
+    # Start Scheduler on its own thread
+    scheduler = Scheduler()
+    scheduler_thread = Thread(target=scheduler.start,args=(thread_manager,))    
+    thread_manager.add_update_thread(thread_type=ThreadType.Scheduler, thread=scheduler_thread)
+    scheduler_thread.start()
 
 main()
