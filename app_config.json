@@ -7,7 +7,7 @@
             "frequency_in_seconds": 5
         },
         "tds_sensor": {
-            "enabled": false,
+            "enabled": true,
             "decimal_places": 2,
             "frequency_in_seconds": 5
         },

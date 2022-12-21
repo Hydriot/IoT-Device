@@ -29,7 +29,7 @@ class WaterLevelSensorSim(SensorBase):
     
         if (self.previous_value == None):
             new_value = random.randrange(0,1)
-            logger.info(f"New >>> rand [{new_value}]")
+
         else:
             rand = random.randrange(1,5) # Create artificial stability in the simulated value
 
