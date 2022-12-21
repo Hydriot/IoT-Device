@@ -20,9 +20,15 @@ class Scheduler():
     overview = OverviewSchedule()
 
     async def register_schedules(self):
-        asyncio.ensure_future(self.water_level_schedule.start(self.schedule_manager, self.config.sensors.water_level_sensor.frequency_in_seconds))
-        asyncio.ensure_future(self.tds_schedule.start(self.schedule_manager, self.config.sensors.tds_sensor.frequency_in_seconds))
-        asyncio.ensure_future(self.ph_schedule.start(self.schedule_manager, self.config.sensors.ph_sensor.frequency_in_seconds))
+
+        if (self.config.sensors.water_level_sensor.enabled):
+            asyncio.ensure_future(self.water_level_schedule.start(self.schedule_manager, self.config.sensors.water_level_sensor.frequency_in_seconds))
+
+        if (self.config.sensors.tds_sensor.enabled):
+            asyncio.ensure_future(self.tds_schedule.start(self.schedule_manager, self.config.sensors.tds_sensor.frequency_in_seconds))
+
+        if (self.config.sensors.ph_sensor.enabled):
+            asyncio.ensure_future(self.ph_schedule.start(self.schedule_manager, self.config.sensors.ph_sensor.frequency_in_seconds))
 
         asyncio.ensure_future(self.overview.start(self.schedule_manager, 5))
 

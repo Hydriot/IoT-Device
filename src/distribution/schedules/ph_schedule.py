@@ -1,6 +1,7 @@
 from src.distribution.schedules.common.schedule_base import SchedulingBase
 from src.infrastructure.logger import LogManager
 from src.data_access.database.common.sqllite_database import SQLLiteDatabase
+from src.infrastructure.config.config_manager import ConfigManager
 
 logger = LogManager().logger
 database = SQLLiteDatabase()

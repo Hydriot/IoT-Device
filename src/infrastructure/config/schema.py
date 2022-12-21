@@ -2,6 +2,7 @@ from typing import Optional
 from pydantic import BaseModel
 
 class Sensor(BaseModel):
+    enabled: Optional[bool]
     decimal_places: Optional[int]
     frequency_in_seconds: Optional[int]
 

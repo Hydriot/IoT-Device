@@ -2,14 +2,17 @@
     "simulator_enabled": true,
     "sensors": {
         "water_level_sensor": {
+            "enabled": true,
             "decimal_places": 2,
             "frequency_in_seconds": 5
         },
         "tds_sensor": {
+            "enabled": false,
             "decimal_places": 2,
             "frequency_in_seconds": 5
         },
         "ph_sensor": {
+            "enabled": false,
             "decimal_places": 2,
             "frequency_in_seconds": 5
         }
