@@ -29,7 +29,7 @@ class WaterLevelSchedule(SchedulingBase):
 
         try:
           value = self.sensor.read_value()
-          logger.info(f"Sensor [{self.sensor.__class__.__name__}] Value [{value}]")
+          #TODO: update SCD
 
           if (self.is_simulated):
             time.sleep(1)

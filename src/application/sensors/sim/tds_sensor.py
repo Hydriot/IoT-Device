@@ -1,12 +1,15 @@
 from src.application.sensors.sensor_base import SensorBase
 from src.infrastructure.logger import LogManager
+from src.common.sensor_type import SensorType
 
 import random
 logger = LogManager().logger
 
 class TdsSensorSim(SensorBase):
     previous_value = None
-   
+
+    def __init__(self) -> None:
+        super().__init__(SensorType.TdsSensor)
 
     def _read_raw_value(self):
         new_value = None

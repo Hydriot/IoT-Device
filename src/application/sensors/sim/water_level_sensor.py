@@ -1,11 +1,15 @@
 from src.application.sensors.sensor_base import SensorBase
 from src.infrastructure.logger import LogManager
+from src.common.sensor_type import SensorType
 
 import random
 logger = LogManager().logger
 
 class WaterLevelSensorSim(SensorBase):
     previous_value = None
+
+    def __init__(self) -> None:
+        super().__init__(SensorType.WaterLevelSensor)
 
     def toggle(self, value):
         if value == 1:

@@ -30,7 +30,7 @@ class Scheduler():
         if (self.config.sensors.ph_sensor.enabled):
             asyncio.ensure_future(self.ph_schedule.start(self.schedule_manager, self.config.sensors.ph_sensor.frequency_in_seconds))
 
-        asyncio.ensure_future(self.overview.start(self.schedule_manager, 5))
+        asyncio.ensure_future(self.overview.start(self.schedule_manager, 2))
 
     def start(self, thread_manager):
         self.thread_manager = thread_manager

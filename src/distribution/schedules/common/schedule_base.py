@@ -43,10 +43,8 @@ class SchedulingBase(ABC):
 
                 try:
                     self.exec()
-
                     self.stopwatch.stop_success()                
 
-                    logger.info(f'Completed schedule for {self.name} in {self.stopwatch.elapsed_time_in_seconds()}s')
                 except Exception as ex:
                     logger.error(f"Error {ex.__class__} occurred for [{self.name}] after {self.stopwatch.stop_failure().elapsed_time_in_seconds()}s while executing schedule. Details: {ex}") 
   

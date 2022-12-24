@@ -4,7 +4,7 @@
         "water_level_sensor": {
             "enabled": true,
             "decimal_places": 2,
-            "frequency_in_seconds": 5
+            "frequency_in_seconds": 3
         },
         "tds_sensor": {
             "enabled": true,
@@ -14,7 +14,7 @@
         "ph_sensor": {
             "enabled": true,
             "decimal_places": 2,
-            "frequency_in_seconds": 5
+            "frequency_in_seconds": 10
         }
     },
     "integration": {
